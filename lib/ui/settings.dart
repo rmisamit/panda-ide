@@ -92,10 +92,26 @@ class _SettingsState extends State<Settings> {
   _SettingsSection _selectedSection = _SettingsSection.general;
   final ScrollController scrollController = ScrollController();
   final TextEditingController apiController = TextEditingController();
-  String _currentLanguage = 'Français 🇫🇷';
+  String _currentLanguage = 'English 🇺🇸';
   double _uiScale = 1.0;
   double _ramLimitGb = 4.0;
   bool _gpuAccelerated = true;
+
+@override
+  void initState() {
+    super.initState();
+    _loadLanguage();
+  }
+
+  Future<void> _loadLanguage() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final saved = prefs.getString('app_language');
+      if (saved != null && saved.isNotEmpty && mounted) {
+        setState(() => _currentLanguage = saved);
+      }
+    } catch (_) {}
+  }
 
 @override
   Widget build(BuildContext context) {

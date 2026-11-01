@@ -317,6 +317,7 @@ class MainApp extends StatelessWidget {
             // que les routes/dialogues soient couverts par le reveal.
             builder: (context, child) =>
                 ThemeSwitchScope(child: child ?? const SizedBox.shrink()),
+            locale: const Locale('en'),
             home: SafeArea(
               top: false,
               child: const StartScreen()

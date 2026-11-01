@@ -13782,7 +13782,7 @@ class _ReplitStepBar extends StatefulWidget {
 
 class _ReplitStepBarState extends State<_ReplitStepBar> {
   late bool _expanded;
-  bool _isFrench = true;
+  bool _isFrench = false;
 
   @override
   void initState() {
@@ -13806,7 +13806,7 @@ class _ReplitStepBarState extends State<_ReplitStepBar> {
     } catch (_) {}
 
     if (mounted) {
-      final locale = Localizations.maybeLocaleOf(context)?.languageCode ?? 'fr';
+      final locale = Localizations.maybeLocaleOf(context)?.languageCode ?? 'en';
       setState(() {
         _isFrench = locale.startsWith('fr');
       });

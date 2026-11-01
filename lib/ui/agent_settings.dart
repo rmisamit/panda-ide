@@ -227,7 +227,7 @@ class _AgentSettingsState extends State<AgentSettings>
     }
     setState(() => _listening = true);
     await s.listen(
-      localeId: 'fr_FR',
+      localeId: 'en_US',
       onResult: (r) {
         if (!r.finalResult) return;
         final current = _chatInputCtrl.text;
